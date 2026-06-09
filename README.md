@@ -4,6 +4,8 @@ Coffee Ratio Calculator is a self-contained web app for building coffee recipes 
 
 Built as a dependency-light client-side application with real-time calculation logic, DOM-driven state management, responsive HTML/CSS, semantic form controls, accessible ARIA labels, CSS custom properties, dynamic tables, range sliders, embedded SVG, and Vanilla JavaScript optimized for simple GitHub Pages hosting.
 
+Want to use the calculator? [Open the hosted Coffee Ratio Calculator](https://rolex20.github.io/coffee-ratio-calculator/MyCoffeeCalculator.html).
+
 ## Live App
 
 The app is designed to run directly from a single HTML file:
