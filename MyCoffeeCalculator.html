@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee to Water Ratio Calculator</title>
+    <style>
+        /* CSS Embedded */
+        /* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap'); */
+		/* Directly embedded fonts */
+
+
+		/* Directly embedded for self-containment */
+		/* cyrillic-ext */
+		@font-face {
+		  font-family: 'Inter';
+		  font-style: normal;
+		  font-weight: 400;
+		  font-display: swap;
+		  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7SUc.woff2) format('woff2');
+		  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+		}
+		/* cyrillic */
+		@font-face {
+		  font-family: 'Inter';
+		  font-style: normal;
+		  font-weight: 400;
+		  font-display: swap;
+		  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7SUc.woff2) format('woff2');
+		  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+		}
+		/* greek-ext */
+		@font-face {
+		  font-family: 'Inter';
+		  font-style: normal;
+		  font-weight: 400;
+		  font-display: swap;
+		  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7SUc.woff2) format('woff2');
+		  unicode-range: U+1F00-1FFF;
+		}
+		/* greek */
+		@font-face {
+		  font-family: 'Inter';
+		  font-style: normal;
+		  font-weight: 400;
+		  font-display: swap;
+		  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7SUc.woff2) format('woff2');
+		  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+		}
+		/* vietnamese */
+		@font-face {
+		  font-family: 'Inter';
+		  font-style: normal;
+		  font-weight: 400;
+		  font-display: swap;
+		  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7SUc.woff2) format('woff2');
+		  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+		}
+		/* latin-ext */
+		@font-face {
+		  font-family: 'Inter';
+		  font-style: normal;
+		  font-weight: 400;
+		  font-display: swap;
+		  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7SUc.woff2) format('woff2');
+		  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+		}
+		/* latin */
+		@font-face {
+		  font-family: 'Inter';
+		  font-style: normal;
+		  font-weight: 400;
+		  font-display: swap;
+		  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2) format('woff2');
+		  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+		}
+		/* cyrillic-ext */
+		@font-face {
+		  font-family: 'Inter';
+		  font-style: normal;
+		  font-weight: 600;
+		  font-display: swap;
+		  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7SUc.woff2) format('woff2');
+		  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+		}
+		/* cyrillic */
+		@font-face {
+		  font-family: 'Inter';
+		  font-style: normal;
+		  font-weight: 600;
+		  font-display: swap;
+		  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7SUc.woff2) format('woff2');
+		  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+		}
+		/* greek-ext */
+		@font-face {
+		  font-family: 'Inter';
+		  font-style: normal;
+		  font-weight: 600;
+		  font-display: swap;
+		  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7SUc.woff2) format('woff2');
+		  unicode-range: U+1F00-1FFF;
+		}
+		/* greek */
+		@font-face {
+		  font-family: 'Inter';
+		  font-style: normal;
+		  font-weight: 600;
+		  font-display: swap;
+		  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7SUc.woff2) format('woff2');
+		  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+		}
+		/* vietnamese */
+		@font-face {
+		  font-family: 'Inter';
+		  font-style: normal;
+		  font-weight: 600;
+		  font-display: swap;
+		  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7SUc.woff2) format('woff2');
+		  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+		}
+		/* latin-ext */
+		@font-face {
+		  font-family: 'Inter';
+		  font-style: normal;
+		  font-weight: 600;
+		  font-display: swap;
+		  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7SUc.woff2) format('woff2');
+		  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+		}
+		/* latin */
+		@font-face {
+		  font-family: 'Inter';
+		  font-style: normal;
+		  font-weight: 600;
+		  font-display: swap;
+		  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2) format('woff2');
+		  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+		}
+		/* cyrillic-ext */
+		@font-face {
+		  font-family: 'Inter';
+		  font-style: normal;
+		  font-weight: 700;
+		  font-display: swap;
+		  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7SUc.woff2) format('woff2');
+		  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+		}
+		/* cyrillic */
+		@font-face {
+		  font-family: 'Inter';
+		  font-style: normal;
+		  font-weight: 700;
+		  font-display: swap;
+		  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa0ZL7SUc.woff2) format('woff2');
+		  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+		}
+		/* greek-ext */
+		@font-face {
+		  font-family: 'Inter';
+		  font-style: normal;
+		  font-weight: 700;
+		  font-display: swap;
+		  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2ZL7SUc.woff2) format('woff2');
+		  unicode-range: U+1F00-1FFF;
+		}
+		/* greek */
+		@font-face {
+		  font-family: 'Inter';
+		  font-style: normal;
+		  font-weight: 700;
+		  font-display: swap;
+		  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1pL7SUc.woff2) format('woff2');
+		  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+		}
+		/* vietnamese */
+		@font-face {
+		  font-family: 'Inter';
+		  font-style: normal;
+		  font-weight: 700;
+		  font-display: swap;
+		  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2pL7SUc.woff2) format('woff2');
+		  unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
+		}
+		/* latin-ext */
+		@font-face {
+		  font-family: 'Inter';
+		  font-style: normal;
+		  font-weight: 700;
+		  font-display: swap;
+		  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7SUc.woff2) format('woff2');
+		  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+		}
+		/* latin */
+		@font-face {
+		  font-family: 'Inter';
+		  font-style: normal;
+		  font-weight: 700;
+		  font-display: swap;
+		  src: url(https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2) format('woff2');
+		  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+		}		
+		
+
+
+        :root { /* Variables remain the same */
+            --bg-color: #F7F3EE;
+            --container-bg: #FFF;
+            --button-bg: #EAE6E1;
+            --button-text: #4A4A4A;
+            --selected-bg: #000000;
+            --selected-text: #FFFFFF;
+            --border-color: #DCDCDC;
+            --text-color: #333333;
+            --label-color: #666666;
+            --highlight-bg: #EFEBE6;
+            --slider-track: #ddd;
+            --slider-thumb: #a19180; /* Thumb color */
+            --slider-button-bg: #c1b7aa; /* Stepper button background */
+            --slider-button-text: var(--selected-text);
+        }
+
+        body { /* Styles remain the same */
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 15px;
+            line-height: 1.6;
+        }
+
+        .calculator-container { /* Styles remain the same */
+            max-width: 650px;
+            margin: 15px auto;
+            background-color: var(--container-bg);
+            padding: 20px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 { /* Styles remain the same */
+            text-align: center;
+            color: var(--text-color);
+            margin-bottom: 25px;
+            font-size: 1.8em;
+            font-weight: 700;
+        }
+
+        h3 { /* Styles remain the same */
+            color: var(--text-color);
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+            font-size: 1.1em;
+        }
+        h3.scoop-heading { /* Styles remain the same */
+            margin-top: 25px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+            margin-bottom: 10px;
+        }
+        h3.presets-heading { /* Styles remain the same */
+            margin-top: 25px;
+             margin-bottom: 10px;
+             font-size: 1em;
+             border-bottom: none;
+             color: var(--label-color);
+             text-align: center;
+        }
+
+        .calculator-step { /* Styles remain the same */
+            background-color: #FDFBF9;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .step-number { /* Styles remain the same */
+            position: absolute;
+            top: -12px;
+            left: 15px;
+            background-color: var(--button-bg);
+            color: var(--label-color);
+            padding: 2px 10px;
+            font-size: 0.75em;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        .button-group { /* Styles remain the same */
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 18px;
+             justify-content: center;
+        }
+
+        .button-group button { /* Styles remain the same */
+            padding: 8px 12px;
+            font-size: 0.85em;
+            background-color: var(--button-bg);
+            color: var(--button-text);
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: background-color 0.2s ease, color 0.2s ease;
+            font-weight: 600;
+        }
+
+        .button-group button:hover { /* Styles remain the same */
+            background-color: #dcd5ce;
+        }
+
+        .button-group button.selected { /* Styles remain the same */
+            background-color: var(--selected-bg);
+            color: var(--selected-text);
+        }
+
+        select#drinkSizeSelect { /* Styles remain the same */
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto 18px auto;
+            padding: 8px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            background-color: #fff;
+            font-size: 0.9em;
+            cursor: pointer;
+            box-sizing: border-box;
+        }
+
+        .water-display { /* Styles remain the same */
+            display: flex;
+            justify-content: space-around;
+            gap: 10px;
+            text-align: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .water-display > div { /* Styles remain the same */
+            flex: 1;
+            min-width: 80px;
+        }
+
+        .label { /* Styles remain the same */
+            display: block;
+            font-size: 0.8em;
+            color: var(--label-color);
+            margin-bottom: 4px;
+        }
+
+        .value-box { /* Styles remain the same */
+            display: block;
+            background-color: var(--button-bg);
+            padding: 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 1em;
+            color: var(--text-color);
+            word-wrap: break-word;
+        }
+
+        .result-display { /* Styles remain the same */
+            margin-top: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: 15px;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+
+        .result-display > div { /* Styles remain the same */
+             flex-basis: 120px;
+             flex-grow: 1;
+             max-width: 160px;
+        }
+
+        .result-display .value-box.large-value { /* Styles remain the same */
+            font-size: 1.6em;
+            padding: 12px 8px;
+            margin: 0;
+            display: block;
+        }
+
+         .result-display .unit { /* Styles remain the same */
+            font-size: 0.85em;
+            color: var(--label-color);
+            display: block;
+            margin-top: 2px;
+        }
+
+        /* --- SLIDER STYLES --- */
+        .slider-container {
+            margin-bottom: 15px;
+            text-align: center;
+            display: flex; /* Use Flexbox for alignment */
+            align-items: center; /* Vertically center items */
+            justify-content: center; /* Center items horizontally */
+            gap: 10px; /* Space between elements */
+            flex-wrap: wrap; /* Allow wrapping on small screens */
+        }
+        .slider-container label { /* Unused label style - kept for potential future use */
+            display: block;
+            font-size: 0.9em;
+            color: var(--label-color);
+            margin-bottom: 8px;
+        }
+         .slider-container input[type="range"] {
+            flex-grow: 1; /* Allow slider to take up available space */
+            max-width: 300px; /* Limit slider width */
+            height: 8px;
+            cursor: pointer;
+            appearance: none;
+            background: var(--slider-track);
+            border-radius: 5px;
+            outline: none;
+            order: 2; /* Slider position in flex order */
+        }
+        .slider-container input[type="range"]::-webkit-slider-thumb { /* Styles remain the same */
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: var(--slider-thumb);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .slider-container input[type="range"]::-moz-range-thumb { /* Styles remain the same */
+            width: 20px;
+            height: 20px;
+            background: var(--slider-thumb);
+            border-radius: 50%;
+            cursor: pointer;
+            border: none;
+        }
+        .slider-value-display {
+            font-weight: 600;
+            color: var(--text-color);
+            min-width: 55px; /* Ensure consistent width */
+            text-align: center; /* Center text */
+            font-size: 1.1em;
+            order: 1; /* Value display position */
+        }
+
+        /* --- NEW SLIDER BUTTON STYLES --- */
+        .slider-button {
+            background-color: var(--slider-button-bg);
+            color: var(--slider-button-text);
+            border: none;
+            border-radius: 50%; /* Circular */
+            width: 34px; /* Button size */
+            height: 34px; /* Button size */
+            font-size: 1.1em; /* Adjust symbol size */
+            font-weight: bold;
+            line-height: 26px; /* Vertically center symbol */
+            text-align: center;
+            cursor: pointer;
+            padding: 0;
+            flex-shrink: 0; /* Prevent buttons from shrinking */
+            transition: background-color 0.2s ease;
+        }
+        .slider-button:hover {
+            background-color: var(--slider-thumb); /* Darken on hover */
+        }
+        .slider-button:active {
+            transform: scale(0.95); /* Click effect */
+        }
+        .slider-button.minus {
+             order: 0; /* Minus button position */
+        }
+         .slider-button.plus {
+             order: 3; /* Plus button position */
+        }
+        /* --- END SLIDER BUTTON STYLES --- */
+
+
+        .info-step table { /* Styles remain the same */
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        .info-step td { /* Styles remain the same */
+            padding: 7px 4px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.9em;
+        }
+        .info-step tr:last-child td { /* Styles remain the same */
+            border-bottom: none;
+        }
+
+        .info-step td:first-child { /* Styles remain the same */
+            font-weight: 600;
+            color: var(--text-color);
+            width: 35%;
+        }
+
+        .info-step tr.highlighted { /* Styles remain the same */
+            background-color: var(--highlight-bg);
+        }
+        .info-step td small { /* Styles remain the same */
+            font-size: 0.9em;
+            color: var(--label-color);
+        }
+
+        .step5-layout { /* Styles remain the same */
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .step5-layout > div:first-child { /* Styles remain the same */
+            flex: 1;
+            min-width: 200px;
+        }
+        .step5-layout .grinder-icon { /* Styles remain the same */
+            margin-top: 20px;
+            flex-shrink: 0;
+        }
+
+        .grinder-icon svg { /* Styles remain the same */
+            display: block;
+            fill: #a19180;
+            width: 60px;
+            height: 60px;
+            margin: 0 auto;
+        }
+
+        .final-step table { /* Styles remain the same */
+             width: 100%;
+             border-collapse: collapse;
+             margin-top: 10px;
+        }
+
+        .final-step td { /* Styles remain the same */
+            padding: 8px 4px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.95em;
+        }
+        .final-step tr:last-child td { /* Styles remain the same */
+            border-bottom: none;
+        }
+        .final-step td:first-child { /* Styles remain the same */
+            font-weight: 600;
+            color: var(--label-color);
+             width: 45%;
+             vertical-align: top;
+        }
+        .final-step td:last-child { /* Styles remain the same */
+            font-weight: 600;
+            color: var(--text-color);
+            word-wrap: break-word;
+        }
+
+        @media (max-width: 480px) { /* Adjust breakpoint */
+             h1 { font-size: 1.5em; } /* Slightly smaller */
+             h3 { font-size: 1em; }
+            .calculator-container { padding: 15px 10px; } /* Less side padding */
+            .button-group button { padding: 7px 9px; font-size: 0.8em; }
+            .water-display { gap: 5px; }
+            .water-display > div { min-width: 65px; }
+            .value-box { font-size: 0.9em; padding: 6px;}
+            .result-display .value-box.large-value { font-size: 1.4em; }
+            .final-step td { font-size: 0.85em; padding: 6px 3px;}
+             .final-step td:first-child { width: 40%; }
+             .result-display { justify-content: space-around; gap: 10px; }
+             .result-display > div { flex-basis: 90px; }
+             .slider-container input[type="range"] { max-width: 150px;} /* Further reduce slider width */
+             .slider-value-display { font-size: 1em;}
+             select#drinkSizeSelect { font-size: 0.8em; padding: 6px;}
+             .slider-button { width: 24px; height: 24px; line-height: 23px; font-size: 1em;} /* Smaller buttons */
+             .slider-container { gap: 5px;} /* Less gap */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator-container">
+        <h1>Coffee to Water Ratio Calculator</h1>
+
+        <!-- Step 1: Method & Size -->
+        <section id="step1" class="calculator-step">
+            <span class="step-number">Step 1</span>
+            <div class="step-content">
+                <h3>Choose Brewing Method</h3>
+                <div class="button-group" id="brewMethodButtons"></div>
+
+                <h3>Choose Drink Size (Ounces)</h3>
+                <!-- UPDATED: Drink Size Slider Container -->
+                <div class="slider-container">
+                    <button class="slider-button minus" id="drinkSizeMinusBtn" aria-label="Decrease drink size">-</button>
+                    <span class="slider-value-display" id="drinkSizeSliderValue">... oz</span>
+                    <input type="range" id="drinkSizeSlider" min="8" max="64" step="1" value="28">
+                    <button class="slider-button plus" id="drinkSizePlusBtn" aria-label="Increase drink size">+</button>
+                </div>
+                <h3 class="presets-heading">Or Select a Preset Size:</h3>
+                <select id="drinkSizeSelect"></select>
+
+                <div class="water-display">
+                    <div> <span class="label">Ounces of water</span> <span class="value-box" id="waterOunces">...</span> </div>
+                    <div> <span class="label">Grams of water</span> <span class="value-box" id="waterGrams">...</span> </div>
+                    <div> <span class="label">Ml of water</span> <span class="value-box" id="waterMl">...</span> </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 2: Strength & Scoops -->
+        <section id="step2" class="calculator-step">
+             <span class="step-number">Step 2</span>
+            <div class="step-content">
+                <h3>Choose Strength (Ratio)</h3>
+                 <!-- UPDATED: Strength Slider Container -->
+                 <div class="slider-container">
+                    <button class="slider-button minus" id="strengthMinusBtn" aria-label="Decrease strength ratio">-</button>
+                     <span class="slider-value-display" id="strengthSliderValue">1:...</span>
+                     <input type="range" id="strengthSlider" min="10" max="29" step="1" value="18">
+                    <button class="slider-button plus" id="strengthPlusBtn" aria-label="Increase strength ratio">+</button>
+                 </div>
+                 <h3 class="presets-heading">Or Select a Preset Strength:</h3>
+                 <div class="button-group" id="strengthButtons"></div>
+
+                 <h3 class="scoop-heading">Choose Scoop Size</h3>
+                 <div class="button-group" id="scoopSizeButtons"></div>
+
+                 <div class="result-display">
+                     <div> <span class="label">Total ground coffee</span> <span class="value-box large-value" id="coffeeGrams">...</span> <span class="unit">grams</span> </div>
+                     <div> <span class="label">Approx. Scoops</span> <span class="value-box large-value" id="coffeeScoops">...</span> <span class="unit">(level scoops)</span> </div>
+                 </div>
+            </div>
+        </section>
+
+        <!-- Steps 3-7 HTML remains the same as previous version -->
+         <!-- Step 3: Roast Level -->
+        <section id="step3" class="calculator-step">
+            <span class="step-number">Step 3</span>
+            <div class="step-content">
+                <h3>Choose Roast Level</h3>
+                <div class="button-group" id="roastButtons"></div>
+            </div>
+        </section>
+
+        <!-- Step 4: Water Temperature -->
+        <section id="step4" class="calculator-step info-step">
+             <span class="step-number">Step 4</span>
+             <div class="step-content">
+                <h3>Keep note of the water temperature</h3>
+                <table id="tempTable">
+                    <tbody>
+                        <tr data-roast="Light Roast"><td>Light Roast:</td><td>93 - 96°C</td></tr>
+                        <tr data-roast="Medium Roast"><td>Medium Roast:</td><td>90 - 93°C</td></tr>
+                        <tr data-roast="Dark Roast"><td>Dark Roast:</td><td>87 - 90°C <small>(even cooler works)</small></td></tr>
+                    </tbody>
+                </table>
+             </div>
+        </section>
+
+        <!-- Step 5: Grind Size -->
+        <section id="step5" class="calculator-step info-step">
+            <span class="step-number">Step 5</span>
+            <div class="step-content step5-layout">
+                 <div>
+                    <h3>Keep Note of Grind Size</h3>
+                    <table id="grindTable">
+                         <tbody>
+                            <tr data-method="Autodrip"><td>Autodrip</td><td>Medium-fine</td></tr>
+                            <tr data-method="Pour Over (v60)"><td>Pourover</td><td>Medium-fine</td></tr>
+                            <tr data-method="Chemex"><td>Chemex</td><td>Medium-fine</td></tr>
+                            <tr data-method="French Press"><td>FrenchPress</td><td>Coarse</td></tr>
+                            <tr data-method="AeroPress"><td>Aeropress</td><td>Medium-fine</td></tr>
+                            <tr data-method="Mokapot"><td>Mokapot</td><td>Fine</td></tr>
+                            <tr data-method="Siphon"><td>Siphon</td><td>Medium-fine</td></tr>
+                            <tr data-method="Cold Brew"><td>Cold Brew</td><td>Coarse</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="grinder-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor"><path d="M464 0H48C21.5 0 0 21.5 0 48v80c0 8.8 7.2 16 16 16h480c8.8 0 16-7.2 16-16V48c0-26.5-21.5-48-48-48zM160 432c0-53 43-96 96-96s96 43 96 96H160zM496 176H16c-8.8 0-16 7.2-16 16v272c0 26.5 21.5 48 48 48h400c26.5 0 48-21.5 48-48V192c0-8.8-7.2-16-16-16zm-240 80c-44.2 0-80 35.8-80 80s35.8 80 80 80 80-35.8 80-80-35.8-80-80-80z"/></svg>
+                </div>
+            </div>
+        </section>
+
+        <!-- Step 6: Brew Length -->
+        <section id="step6" class="calculator-step">
+             <span class="step-number">Step 6</span>
+            <div class="step-content">
+                <h3>Ideal Brew Length Suggestions</h3>
+                 <div class="button-group" id="brewLengthButtons"></div>
+                  <div class="result-display">
+                      <div>
+                          <span class="value-box large-value" id="brewTime">...</span>
+                      </div>
+                  </div>
+            </div>
+        </section>
+
+        <!-- Step 7: Final Recipe -->
+        <section id="step7" class="calculator-step final-step">
+             <span class="step-number">Step 7</span>
+             <div class="step-content">
+                <h3>Final Recipe</h3>
+                <table id="finalRecipeTable">
+                    <tbody>
+                        <tr><td>Brew Device</td><td id="finalBrewDevice">...</td></tr>
+                        <tr><td>Total water</td><td id="finalTotalWater">...</td></tr>
+                        <tr><td>Water Temperature</td><td id="finalWaterTemp">...</td></tr>
+                        <tr><td>Brew Ratio</td><td id="finalBrewRatio">...</td></tr>
+                        <tr><td>Total ground coffee</td><td id="finalCoffeeGrams">...</td></tr>
+                        <tr><td>Grind Size</td><td id="finalGrindSize">...</td></tr>
+                        <tr><td>Brew Length</td><td id="finalBrewLength">...</td></tr>
+                    </tbody>
+                </table>
+             </div>
+        </section>
+
+
+    </div>
+
+    <script>
+        // JavaScript Embedded - Configuration Driven Approach with Sliders & Stepper Buttons
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- Conversion Constants ---
+            const G_PER_OZ = 28.3495;
+            const ML_PER_OZ = 29.5735;
+
+            // ===============================================================
+            // === CONFIGURATION OBJECT (remains the same as previous version with updated brew lengths) ===
+            // ===============================================================
+             const appConfig = {
+                brewMethods: {
+                    options: [
+                         { id: 'Autodrip', label: 'Autodrip', grind: 'Medium-fine' },
+                         { id: 'Pour Over (v60)', label: 'Pour Over (v60)', grind: 'Medium-fine', default: true },
+                         { id: 'Chemex', label: 'Chemex', grind: 'Medium-fine' },
+                         { id: 'French Press', label: 'French Press', grind: 'Coarse' },
+                         { id: 'AeroPress', label: 'AeroPress', grind: 'Medium-fine' },
+                         { id: 'Mokapot', label: 'Mokapot', grind: 'Fine' },
+                         { id: 'Siphon', label: 'Siphon', grind: 'Medium-fine' },
+                         { id: 'Cold Brew', label: 'Cold Brew', grind: 'Coarse' }
+                    ],
+                    targetElementId: 'brewMethodButtons',
+                    stateKey: 'brewMethodId'
+                },
+                drinkSizes: {
+                    options: [
+                        { id: 'placeholder', label: 'Select Preset Size...', value: { oz: 0, g: 0, ml: 0 } },
+                        { id: '1-cup', label: '1 cup', value: { oz: 8, g: 227, ml: 237 } },
+                        { id: '2-cups', label: '2 cups', value: { oz: 16, g: 454, ml: 473 } },
+						{ id: '2.5-cups', label: '2.5 cups', value: { oz: 20, g: 567, ml: 591 } },
+                        { id: '3-cups', label: '3 cups', value: { oz: 24, g: 681, ml: 710 } },
+                        { id: '3.5-cups', label: '3.5 cups', value: { oz: 28, g: 794, ml: 828 } },
+                        { id: '4-cups', label: '4 cups', value: { oz: 32, g: 908, ml: 946 } },
+                        { id: '5-cups', label: '5 cups', value: { oz: 40, g: 1135, ml: 1183 } },
+                        { id: '6-cups', label: '6 cups', value: { oz: 48, g: 1362, ml: 1420 } },
+                        { id: '7-cups', label: '7 cups', value: { oz: 56, g: 1589, ml: 1656 } },
+                        { id: '8-cups', label: '8 cups', value: { oz: 64, g: 1816, ml: 1893 } }
+                    ],
+                    sliderDefaults: { min: 8, max: 64, step: 1, default: 20 },
+                    targetElementId: 'drinkSizeSelect',
+                    sliderElementId: 'drinkSizeSlider',
+                    sliderValueDisplayId: 'drinkSizeSliderValue',
+                    // --- NEW: Stepper Button IDs ---
+                    minusButtonId: 'drinkSizeMinusBtn',
+                    plusButtonId: 'drinkSizePlusBtn',
+                    stateKey: 'waterOz'
+                },
+                strengths: {
+                     options: [
+                         { id: '34', label: 'Ultra Mild 1:34', value: 34 },					 					 
+                         { id: '32', label: 'Super Mild 1:32', value: 32 },					 
+                         { id: '28', label: 'Extra Mild 1:28', value: 28 },
+                         { id: '24', label: 'Very Mild 1:24', value: 24 }, 
+                         { id: '20', label: 'Quite Mild 1:20', value: 20 },
+                         { id: '18', label: 'Mild 1:18', value: 18 },
+                         { id: '16', label: 'Average 1:16', value: 16 }
+                    ],
+                    sliderDefaults: { min: 10, max: 50, step: 1, default: 28 },
+                    targetElementId: 'strengthButtons',
+                    sliderElementId: 'strengthSlider',
+                    sliderValueDisplayId: 'strengthSliderValue',
+                     // --- NEW: Stepper Button IDs ---
+                    minusButtonId: 'strengthMinusBtn',
+                    plusButtonId: 'strengthPlusBtn',
+                    stateKey: 'strengthRatio'
+                },
+                scoopSizes: {
+                     options: [
+                        { id: '6', label: '6 gram scoop', value: 6, default: true },
+                        { id: '7', label: '7 gram scoop', value: 7 },
+                    ],
+                    targetElementId: 'scoopSizeButtons',
+                    stateKey: 'scoopSizeId'
+                },
+                roastLevels: {
+                     options: [
+                        { id: 'Light Roast', label: 'Light Roast', temp: '93 - 96°C' },
+                        { id: 'Medium Roast', label: 'Medium Roast', temp: '90 - 93°C', default: true },
+                        { id: 'Dark Roast', label: 'Dark Roast', temp: '87 - 90°C' },
+                    ],
+                    targetElementId: 'roastButtons',
+                    stateKey: 'roastLevelId'
+                },
+                brewLengths: {
+                     options: [
+                        { id: 'Fast (mild)', label: 'Fast (mild)', time: '4 minutes' },
+                        { id: 'Average (balanced)', label: 'Average (balanced)', time: '5 minutes' },
+                        { id: 'Slow (Robust)', label: 'Slow (Robust)', time: '6 minutes', default: true }, // Default and times updated
+                    ],
+                    targetElementId: 'brewLengthButtons',
+                    stateKey: 'brewLengthId'
+                }
+            };
+            // ===============================================================
+            // === END CONFIGURATION OBJECT ==================================
+            // ===============================================================
+
+            // --- STATE VARIABLES (remains the same) ---
+             let state = {
+                brewMethodId: null,
+                scoopSizeId: null,
+                roastLevelId: null,
+                brewLengthId: null,
+                waterOz: appConfig.drinkSizes.sliderDefaults.default,
+                strengthRatio: appConfig.strengths.sliderDefaults.default,
+                waterGrams: 0,
+                waterMl: 0,
+                coffeeGrams: 0.00,
+                coffeeScoops: 0.0
+            };
+
+            // --- DOM ELEMENT REFERENCES ---
+            // Sliders & Value Displays
+            const drinkSizeSlider = document.getElementById(appConfig.drinkSizes.sliderElementId);
+            const drinkSizeSliderValueDisplay = document.getElementById(appConfig.drinkSizes.sliderValueDisplayId);
+            const strengthSlider = document.getElementById(appConfig.strengths.sliderElementId);
+            const strengthSliderValueDisplay = document.getElementById(appConfig.strengths.sliderValueDisplayId);
+            // --- NEW: Stepper Buttons ---
+            const drinkSizeMinusBtn = document.getElementById(appConfig.drinkSizes.minusButtonId);
+            const drinkSizePlusBtn = document.getElementById(appConfig.drinkSizes.plusButtonId);
+            const strengthMinusBtn = document.getElementById(appConfig.strengths.minusButtonId);
+            const strengthPlusBtn = document.getElementById(appConfig.strengths.plusButtonId);
+            // Water & Coffee Displays
+            const waterOuncesEl = document.getElementById('waterOunces');
+            const waterGramsEl = document.getElementById('waterGrams');
+            const waterMlEl = document.getElementById('waterMl');
+            const coffeeGramsEl = document.getElementById('coffeeGrams');
+            const coffeeScoopsEl = document.getElementById('coffeeScoops');
+            const brewTimeEl = document.getElementById('brewTime');
+            // Info Tables
+            const tempTableRows = document.querySelectorAll('#tempTable tbody tr');
+            const grindTableRows = document.querySelectorAll('#grindTable tbody tr');
+            // Final Recipe Table Cells
+            const finalBrewDevice = document.getElementById('finalBrewDevice');
+            const finalTotalWater = document.getElementById('finalTotalWater');
+            const finalWaterTemp = document.getElementById('finalWaterTemp');
+            const finalBrewRatio = document.getElementById('finalBrewRatio');
+            const finalCoffeeGrams = document.getElementById('finalCoffeeGrams');
+            const finalGrindSize = document.getElementById('finalGrindSize');
+            const finalBrewLength = document.getElementById('finalBrewLength');
+
+
+             // --- HELPER: Find option object by ID from config ---
+            function findOptionById(configSection, id) {
+                 if (!configSection || !configSection.options) return null;
+                return configSection.options.find(opt => opt.id === id);
+            }
+             // --- HELPER: Find Strength Preset Option by VALUE (Ratio) ---
+             function findStrengthPresetOptionByValue(value) {
+                 if (!appConfig.strengths || !appConfig.strengths.options) return null;
+                 const numericValue = Number(value);
+                 return appConfig.strengths.options.find(opt => opt.value === numericValue);
+             }
+              // --- HELPER: Find Drink Size Preset Option by VALUE (Ounces) ---
+             function findDrinkSizePresetOptionByValue(value) {
+                  if (!appConfig.drinkSizes || !appConfig.drinkSizes.options) return null;
+                  const numericValue = Number(value);
+                  return appConfig.drinkSizes.options.find(opt => opt.id !== 'placeholder' && opt.value.oz === numericValue);
+             }
+
+            // --- HELPER: Update button visual selection ---
+            function updateButtonSelection(buttonGroupElement, selectedId) {
+                if (!buttonGroupElement) return;
+                const buttons = buttonGroupElement.querySelectorAll('button');
+                buttons.forEach(button => {
+                    button.classList.toggle('selected', button.dataset.value === selectedId);
+                });
+            }
+
+             // --- HELPER: Update info table highlights ---
+             function updateTableHighlight(tableRows, dataAttribute, selectedValue) {
+                tableRows.forEach(row => {
+                     let rowDataValue = row.dataset[dataAttribute];
+                     let adjustedSelectedValue = selectedValue;
+                      if (selectedValue === 'French Press') adjustedSelectedValue = 'FrenchPress';
+                      if (selectedValue === 'AeroPress') adjustedSelectedValue = 'Aeropress';
+                    row.classList.toggle('highlighted', rowDataValue === adjustedSelectedValue);
+                });
+            }
+
+            // --- SYNCHRONIZATION FUNCTIONS (remain the same) ---
+             function syncStrengthSelection() {
+                strengthSliderValueDisplay.textContent = `1:${state.strengthRatio}`;
+                const matchingPreset = findStrengthPresetOptionByValue(state.strengthRatio);
+                const strengthButtonsContainer = document.getElementById(appConfig.strengths.targetElementId);
+                if (strengthButtonsContainer) {
+                     updateButtonSelection(strengthButtonsContainer, matchingPreset ? matchingPreset.id : null);
+                }
+                strengthSlider.value = state.strengthRatio;
+            }
+
+            function syncDrinkSizeSelection() {
+                 drinkSizeSliderValueDisplay.textContent = `${state.waterOz} oz`;
+                 const matchingPreset = findDrinkSizePresetOptionByValue(state.waterOz);
+                 const drinkSizeSelect = document.getElementById(appConfig.drinkSizes.targetElementId);
+                 if (drinkSizeSelect) {
+                    drinkSizeSelect.value = matchingPreset ? matchingPreset.id : 'placeholder';
+                 }
+                 drinkSizeSlider.value = state.waterOz;
+            }
+
+
+            // --- UPDATE FUNCTIONS (remain the same) ---
+            function updateWaterAmounts() {
+                state.waterGrams = Math.round(state.waterOz * G_PER_OZ);
+                state.waterMl = Math.round(state.waterOz * ML_PER_OZ);
+                waterOuncesEl.textContent = state.waterOz;
+                waterGramsEl.textContent = state.waterGrams;
+                waterMlEl.textContent = state.waterMl;
+            }
+
+            function calculateCoffeeAndScoops() {
+                if (state.waterGrams > 0 && state.strengthRatio > 0) {
+                    state.coffeeGrams = (state.waterGrams / state.strengthRatio).toFixed(2);
+                } else {
+                    state.coffeeGrams = '0.00';
+                }
+                coffeeGramsEl.textContent = state.coffeeGrams;
+
+                const scoopOption = findOptionById(appConfig.scoopSizes, state.scoopSizeId);
+                const scoopGrams = scoopOption ? scoopOption.value : 0;
+                let scoops = 0.0;
+                const grams = parseFloat(state.coffeeGrams);
+                if (grams > 0 && scoopGrams > 0) {
+                    scoops = (grams / scoopGrams).toFixed(1);
+                }
+                state.coffeeScoops = scoops;
+                coffeeScoopsEl.textContent = state.coffeeScoops;
+            }
+
+            function updateTemperatureInfo() {
+                const roastOption = findOptionById(appConfig.roastLevels, state.roastLevelId);
+                const tempRange = roastOption ? roastOption.temp : 'N/A';
+                finalWaterTemp.textContent = tempRange;
+                updateTableHighlight(tempTableRows, 'roast', state.roastLevelId);
+            }
+
+            function updateGrindInfo() {
+                const methodOption = findOptionById(appConfig.brewMethods, state.brewMethodId);
+                const grindSize = methodOption ? methodOption.grind : 'N/A';
+                finalGrindSize.textContent = grindSize;
+                updateTableHighlight(grindTableRows, 'method', methodOption ? methodOption.id : null);
+            }
+
+            function updateBrewTimeInfo() {
+                const lengthOption = findOptionById(appConfig.brewLengths, state.brewLengthId);
+                const time = lengthOption ? lengthOption.time : 'N/A';
+                brewTimeEl.textContent = time;
+                finalBrewLength.textContent = time;
+            }
+
+            function updateFinalRecipe() {
+                const methodOption = findOptionById(appConfig.brewMethods, state.brewMethodId);
+                const brewDeviceLabel = methodOption ? methodOption.label : 'N/A';
+                 const sizePresetOption = findDrinkSizePresetOptionByValue(state.waterOz);
+                 const sizeLabel = sizePresetOption ? sizePresetOption.label : `${state.waterOz} oz`;
+
+                finalBrewDevice.textContent = brewDeviceLabel;
+                finalTotalWater.textContent = `${sizeLabel} / ${state.waterGrams} g / ${state.waterMl} ml`;
+                finalBrewRatio.textContent = `1:${state.strengthRatio}`;
+                finalCoffeeGrams.textContent = `${state.coffeeGrams} grams`;
+            }
+
+             // --- MASTER UPDATE FUNCTION (remains the same) ---
+             function handleStateUpdate(source = "unknown") {
+                 updateWaterAmounts();
+                 calculateCoffeeAndScoops();
+                 updateTemperatureInfo();
+                 updateGrindInfo();
+                 updateBrewTimeInfo();
+                 syncDrinkSizeSelection();
+                 syncStrengthSelection();
+                 updateFinalRecipe();
+                 updateButtonSelection(document.getElementById(appConfig.scoopSizes.targetElementId), state.scoopSizeId);
+                 updateButtonSelection(document.getElementById(appConfig.roastLevels.targetElementId), state.roastLevelId);
+                 updateButtonSelection(document.getElementById(appConfig.brewLengths.targetElementId), state.brewLengthId);
+                 updateButtonSelection(document.getElementById(appConfig.brewMethods.targetElementId), state.brewMethodId);
+             }
+
+
+             // --- EVENT HANDLER FOR SLIDER STEPPER BUTTONS ---
+             function handleStepperButtonClick(sliderElement, increase) {
+                 const currentValue = parseFloat(sliderElement.value);
+                 const step = parseFloat(sliderElement.step) || 1;
+                 const min = parseFloat(sliderElement.min);
+                 const max = parseFloat(sliderElement.max);
+                 let newValue = increase ? currentValue + step : currentValue - step;
+
+                 // Clamp value within min/max
+                 newValue = Math.max(min, Math.min(max, newValue));
+
+                 if (newValue !== currentValue) {
+                     sliderElement.value = newValue;
+                     // Dispatch an 'input' event to trigger the existing slider logic
+                     sliderElement.dispatchEvent(new Event('input', { bubbles: true }));
+                 }
+             }
+
+
+            // --- INITIALIZATION ---
+            function initCalculator() {
+                console.log("Initializing Calculator...");
+
+                // --- Initialize Sliders ---
+                const dsSliderDefaults = appConfig.drinkSizes.sliderDefaults;
+                drinkSizeSlider.min = dsSliderDefaults.min;
+                drinkSizeSlider.max = dsSliderDefaults.max;
+                drinkSizeSlider.step = dsSliderDefaults.step;
+                drinkSizeSlider.value = state.waterOz;
+                drinkSizeSlider.addEventListener('input', (e) => {
+                     state.waterOz = Number(e.target.value);
+                     handleStateUpdate("drinkSizeSlider");
+                });
+
+                const stSliderDefaults = appConfig.strengths.sliderDefaults;
+                strengthSlider.min = stSliderDefaults.min;
+                strengthSlider.max = stSliderDefaults.max;
+                strengthSlider.step = stSliderDefaults.step;
+                strengthSlider.value = state.strengthRatio;
+                 strengthSlider.addEventListener('input', (e) => {
+                     state.strengthRatio = Number(e.target.value);
+                     handleStateUpdate("strengthSlider");
+                });
+
+                 // --- Add Stepper Button Listeners ---
+                 drinkSizeMinusBtn.addEventListener('click', () => handleStepperButtonClick(drinkSizeSlider, false));
+                 drinkSizePlusBtn.addEventListener('click', () => handleStepperButtonClick(drinkSizeSlider, true));
+                 strengthMinusBtn.addEventListener('click', () => handleStepperButtonClick(strengthSlider, false));
+                 strengthPlusBtn.addEventListener('click', () => handleStepperButtonClick(strengthSlider, true));
+
+
+                // --- Populate Preset Buttons/Dropdowns & Set Default State IDs ---
+                for (const key in appConfig) {
+                    const configSection = appConfig[key];
+                     // Get target element ID based on type
+                     let targetElementId = configSection.targetElementId;
+                     if (!targetElementId) continue; // Skip if no target defined (like slider-only sections if we had them)
+
+                    const targetElement = document.getElementById(targetElementId);
+                     if (!targetElement) {
+                         console.error(`Target element not found: ${targetElementId}`);
+                         continue;
+                     }
+
+                     targetElement.innerHTML = ''; // Clear
+
+                    if (targetElement.tagName === 'SELECT') { // Drink Size Presets
+                         configSection.options.forEach(opt => {
+                            const optionEl = document.createElement('option');
+                            optionEl.value = opt.id;
+                            optionEl.textContent = opt.label;
+                            if (opt.id === 'placeholder') optionEl.disabled = true;
+                            targetElement.appendChild(optionEl);
+                         });
+                         targetElement.addEventListener('change', (e) => {
+                             const selectedOptionId = e.target.value;
+                             if (selectedOptionId === 'placeholder') return;
+                             const presetOption = configSection.options.find(opt => opt.id === selectedOptionId);
+                             if (presetOption && presetOption.value.oz) {
+                                 state.waterOz = presetOption.value.oz;
+                                 handleStateUpdate("drinkSizeSelect");
+                             }
+                         });
+                    } else { // Button Groups (Strength Presets, Method, Scoop, Roast, Length)
+                         configSection.options.forEach(opt => {
+                             const buttonEl = document.createElement('button');
+                             buttonEl.dataset.value = (key === 'strengths') ? opt.id : opt.id; // Use ID for strength lookup too
+                             buttonEl.textContent = opt.label;
+                             targetElement.appendChild(buttonEl);
+                         });
+
+                         targetElement.addEventListener('click', (e) => {
+                             if (e.target.tagName === 'BUTTON' && e.target.dataset.value) {
+                                 const clickedValueOrId = e.target.dataset.value;
+                                 if (key === 'strengths') { // Handle Strength Presets
+                                      const presetOption = configSection.options.find(opt => opt.id === clickedValueOrId);
+                                     if (presetOption) {
+                                         state.strengthRatio = presetOption.value;
+                                         handleStateUpdate("strengthButton");
+                                     }
+                                 } else { // Handle other button groups (Method, Scoop, Roast, Length)
+                                      state[configSection.stateKey] = clickedValueOrId; // Update state ID
+                                      handleStateUpdate(configSection.stateKey + "Button");
+                                 }
+                             }
+                         });
+
+                         // Set initial default state ID for non-slider sections
+                         if (key !== 'drinkSizes' && key !== 'strengths') {
+                             const defaultOption = configSection.options.find(opt => opt.default === true);
+                             const defaultId = defaultOption ? defaultOption.id : (configSection.options.length > 0 ? configSection.options[0].id : null);
+                             if (defaultId) {
+                                 state[configSection.stateKey] = defaultId;
+                             }
+                         }
+                    }
+                }
+
+                // Perform initial calculations and UI updates based on default state
+                console.log("Initial State (Pre-Update):", JSON.parse(JSON.stringify(state)));
+                handleStateUpdate("init");
+                console.log("Initialization Complete.");
+            }
+
+            initCalculator(); // Run initialization
+
+        });
+    </script>
+
+</body>
+</html>
